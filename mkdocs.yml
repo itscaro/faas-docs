@@ -1,0 +1,17 @@
+site_name: OpenFaaS
+pages:
+- Home: index.md
+- Gateway:
+  - Gateway: faas/README.md
+  - Dev: faas/DEV.md
+  - Roadmap: faas/ROADMAP.md
+  - Contributing: faas/CONTRIBUTING.md
+- Cli:
+  - Cli: faas-cli/README.md
+  - Manual: faas-cli/MANUAL_CLI.md
+  - Notes: faas-cli/Notes.md
+  - Contributing: faas-cli/CONTRIBUTING.md
+theme: readthedocs
+docs_dir: src
+site_dir: docs
+dev_addr: 0.0.0.0:8000

@@ -1,0 +1,6 @@
+[submodule "src/faas"]
+	path = src/faas
+	url = https://github.com/openfaas/faas
+[submodule "src/faas-cli"]
+	path = src/faas-cli
+	url = https://github.com/openfaas/faas-cli
