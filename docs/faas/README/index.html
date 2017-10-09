@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Gateway - OpenFaaS</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../faas/gateway/assets/style/bootstrap.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Gateway";
+    var mkdocs_page_input_path = "faas/README.md";
+    var mkdocs_page_url = "/faas/README/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> OpenFaaS</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Gateway</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Gateway</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#openfaas-functions-as-a-service">OpenFaaS - Functions as a Service</a></li>
+    
+
+    <li class="toctree-l3"><a href="#governance">Governance</a></li>
+    
+
+    <li class="toctree-l3"><a href="#overview-of-openfaas">Overview of OpenFaaS</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#function-watchdog">Function Watchdog</a></li>
+        
+            <li><a class="toctree-l4" href="#api-gateway-ui-portal">API Gateway / UI Portal</a></li>
+        
+            <li><a class="toctree-l4" href="#cli">CLI</a></li>
+        
+            <li><a class="toctree-l4" href="#function-examples">Function examples</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#get-started-with-openfaas">Get started with OpenFaaS</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#testdrive">TestDrive</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#find-out-more-about-openfaas">Find out more about OpenFaaS</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#skillsmatter-video-presentation">SkillsMatter video presentation</a></li>
+        
+            <li><a class="toctree-l4" href="#openfaas-presents-to-cncf-serverless-workgroup">OpenFaaS presents to CNCF Serverless workgroup</a></li>
+        
+            <li><a class="toctree-l4" href="#closing-keynote-at-dockercon-2017">Closing Keynote at Dockercon 2017</a></li>
+        
+            <li><a class="toctree-l4" href="#community">Community</a></li>
+        
+            <li><a class="toctree-l4" href="#roadmap-and-contributing">Roadmap and contributing</a></li>
+        
+            <li><a class="toctree-l4" href="#how-do-i-become-a-contributor">How do I become a contributor?</a></li>
+        
+            <li><a class="toctree-l4" href="#other">Other</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../DEV/">Dev</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ROADMAP/">Roadmap</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../CONTRIBUTING/">Contributing</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Cli</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../faas-cli/README/">Cli</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../faas-cli/MANUAL_CLI/">Manual</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../faas-cli/Notes/">Notes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../faas-cli/CONTRIBUTING/">Contributing</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">OpenFaaS</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Gateway &raquo;</li>
+        
+      
+    
+    <li>Gateway</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="openfaas-functions-as-a-service">OpenFaaS - Functions as a Service</h2>
+<p><a href="https://goreportcard.com/report/github.com/openfaas/faas"><img alt="Go Report Card" src="https://goreportcard.com/badge/github.com/openfaas/faas" /></a> <a href="https://travis-ci.org/openfaas/faas"><img alt="Build
+Status" src="https://travis-ci.org/openfaas/faas.svg?branch=master" /></a> <a href="https://godoc.org/github.com/openfaas/faas"><img alt="GoDoc" src="https://godoc.org/github.com/openfaas/faas?status.svg" /></a>
+<a href="https://www.openfaas.com"><img alt="OpenFaaS" src="https://img.shields.io/badge/openfaas-serverless-blue.svg" /></a></p>
+<p><img alt="OpenFaaS Logo" src="https://blog.alexellis.io/content/images/2017/08/faas_side.png" /></p>
+<p>OpenFaaS (Functions as a Service) is a framework for building serverless functions with Docker which has first class support for metrics. Any process can be packaged as a function enabling you to consume a range of web events without repetitive boiler-plate coding.</p>
+<p><a href="https://twitter.com/open_faas"><img alt="Twitter URL" src="https://img.shields.io/twitter/url/https/twitter.com/fold_left.svg?style=social&amp;label=Follow%20%40open_faas" /></a></p>
+<p><strong>Highlights</strong></p>
+<ul>
+<li>Ease of use through UI portal and <em>one-click</em> install</li>
+<li>Write functions in any language for Linux or Windows and package in Docker/OCI image format</li>
+<li>Portable - runs on existing hardware or public/private cloud - <a href="https://github.com/openfaas/faas-netes">Kubernetes</a> and Docker Swarm native</li>
+<li><a href="http://github.com/openfaas/faas-cli">CLI</a> available with YAML format for templating and defining functions</li>
+<li>Auto-scales as demand increases</li>
+</ul>
+<h2 id="governance">Governance</h2>
+<p>OpenFaaS is an independent project created by <a href="https://www.alexellis.io">Alex Ellis</a> which is now being built and shaped by a growing community of contributors. Project website: <a href="https://www.openfaas.com">openfaas.com</a>.</p>
+<h2 id="overview-of-openfaas">Overview of OpenFaaS</h2>
+<p><img alt="Stack" src="https://pbs.twimg.com/media/DFrkF4NXoAAJwN2.jpg" /></p>
+<h3 id="function-watchdog">Function Watchdog</h3>
+<ul>
+<li>You can make any Docker image into a serverless function by adding the <em>Function Watchdog</em> (a tiny Golang HTTP server)</li>
+<li>The <em>Function Watchdog</em> is the entrypoint allowing HTTP requests to be forwarded to the target process via STDIN. The response is sent back to the caller by writing to STDOUT from your application.</li>
+</ul>
+<h3 id="api-gateway-ui-portal">API Gateway / UI Portal</h3>
+<ul>
+<li>The API Gateway provides an external route into your functions and collects Cloud Native metrics through Prometheus.</li>
+<li>Your API Gateway will scale functions according to demand by altering the service replica count in the Docker Swarm or Kubernetes API.</li>
+<li>A UI is baked in allowing you to invoke functions in your browser and create new ones as needed.</li>
+</ul>
+<blockquote>
+<p>The API Gateway is a RESTful micro-service and you can view the <a href="https://github.com/openfaas/faas/tree/master/api-docs">Swagger docs here</a>.</p>
+</blockquote>
+<h3 id="cli">CLI</h3>
+<p>Any container or process in a Docker container can be a serverless function in FaaS. Using the <a href="http://github.com/openfaas/faas-cli">FaaS CLI</a> you can deploy your functions or quickly create new functions from templates such as Node.js or Python.</p>
+<blockquote>
+<p>The CLI is effectively a RESTful client for the API Gateway.</p>
+</blockquote>
+<p>When you have OpenFaaS configured you can <a href="https://blog.alexellis.io/quickstart-openfaas-cli/">get started with the CLI here</a></p>
+<h3 id="function-examples">Function examples</h3>
+<p>You can generate new functions using the FaaS-CLI and built-in templates or use any binary for Windows or Linux in a Docker container.</p>
+<ul>
+<li>Python example:</li>
+</ul>
+<pre><code class="python">import requests
+
+def handle(req):
+        r =  requests.get(req, timeout = 1)
+        print(req +&quot; =&gt; &quot; + str(r.status_code))
+</code></pre>
+
+<p><em>handler.py</em></p>
+<ul>
+<li>Node.js example:</li>
+</ul>
+<pre><code class="js">&quot;use strict&quot;
+
+module.exports = (callback, context) =&gt; {
+    callback(null, {&quot;message&quot;: &quot;You said: &quot; + context})
+}
+</code></pre>
+
+<p><em>handler.js</em></p>
+<p>Other <a href="https://github.com/openfaas/faas/tree/master/sample-functions">Sample functions</a> are available in the Github repository in a range of programming languages.</p>
+<h2 id="get-started-with-openfaas">Get started with OpenFaaS</h2>
+<h3 id="testdrive">TestDrive</h3>
+<p><strong>Docker Swarm</strong></p>
+<p>The deployment guide for Docker Swarm contains a simple one-line command to get you up and running in around 60 seconds. It also includes a set of <a href="https://github.com/openfaas/faas/tree/master/sample-functions">sample functions</a> which you can use with the TestDrive instructions below.</p>
+<p><a href="https://github.com/openfaas/faas/blob/master/guide/deployment_swarm.md">Deployment guide for Docker Swarm</a></p>
+<p><strong>Kubernetes</strong></p>
+<p>OpenFaaS is Kubernetes-native - you can follow the <a href="https://github.com/openfaas/faas/blob/master/guide/deployment_k8s.md">deployment guide here</a>.</p>
+<p><strong>Docker Playground</strong></p>
+<p>You can quickly start OpenFaaS on Docker Swarm online using the community-run Docker playground: play-with-docker.com (PWD) by clicking the button below:</p>
+<p><a href="http://play-with-docker.com?stack=https://raw.githubusercontent.com/openfaas/faas/master/docker-compose.yml&amp;stack_name=func"><img alt="Try in PWD" src="https://cdn.rawgit.com/play-with-docker/stacks/cff22438/assets/images/button.png" /></a></p>
+<h4 id="begin-the-testdrive">Begin the TestDrive</h4>
+<ul>
+<li><a href="https://github.com/openfaas/faas/blob/master/TestDrive.md">Begin the TestDrive with Docker Swarm</a></li>
+</ul>
+<p>Here is a screenshot of the API gateway portal - designed for ease of use.</p>
+<p><img alt="Portal" src="https://pbs.twimg.com/media/C7bkpZbWwAAnKsx.jpg" /></p>
+<h2 id="find-out-more-about-openfaas">Find out more about OpenFaaS</h2>
+<h3 id="skillsmatter-video-presentation">SkillsMatter video presentation</h3>
+<p>Great overview of OpenFaaS features, users and roadmap</p>
+<ul>
+<li><a href="https://skillsmatter.com/skillscasts/10813-faas-and-furious-0-to-serverless-in-60-seconds-anywhere">HD Video</a></li>
+</ul>
+<h3 id="openfaas-presents-to-cncf-serverless-workgroup">OpenFaaS presents to CNCF Serverless workgroup</h3>
+<ul>
+<li><a href="https://blog.alexellis.io/openfaas-cncf-workgroup/">Video and blog post</a></li>
+</ul>
+<h3 id="closing-keynote-at-dockercon-2017">Closing Keynote at Dockercon 2017</h3>
+<p>Functions as a Service or FaaS was a winner in the Cool Hacks contest for Dockercon 2017.</p>
+<ul>
+<li><a href="https://blog.docker.com/2017/04/dockercon-2017-mobys-cool-hack-sessions/">Watch my FaaS keynote at Dockercon 2017</a></li>
+</ul>
+<p>If you'd like to find the functions I used in the demos head over to the <a href="https://github.com/alexellis/faas-dockercon/">faas-dockercon</a> repository.</p>
+<p><strong>Background story</strong></p>
+<p>This is my original blog post on FaaS from January: <a href="http://blog.alexellis.io/functions-as-a-service/">Functions as a Service blog post</a></p>
+<h3 id="community">Community</h3>
+<p>Have you written a blog about OpenFaaS? Send a Pull Request to the community page below.</p>
+<ul>
+<li><a href="https://github.com/openfaas/faas/blob/master/community.md">Read blogs/articles and find events about OpenFaaS</a></li>
+</ul>
+<p>If you'd like to join OpenFaaS community Slack channel to chat with contributors or get some help - then send a Tweet to <a href="https://twitter.com/alexellisuk/">@alexellisuk</a> or email alex@openfaas.com.</p>
+<h3 id="roadmap-and-contributing">Roadmap and contributing</h3>
+<p>OpenFaaS is written in Golang and is MIT licensed - contributions are welcomed whether that means providing feedback, testing existing and new feature or hacking on the source.</p>
+<p>To get started you can read the <a href="https://github.com/openfaas/faas/blob/master/ROADMAP.md">roadmap</a> and <a href="https://github.com/openfaas/faas/blob/master/CONTRIBUTING.md">contribution guide</a> or:</p>
+<ul>
+<li><a href="https://github.com/openfaas/faas/issues">Browse FaaS issues on Github</a>.</li>
+<li><a href="https://github.com/openfaas/faas-cli/issues">Browse FaaS-CLI issues on Github</a>.</li>
+</ul>
+<p>Highlights:</p>
+<ul>
+<li>New: Kubernetes support via <a href="https://github.com/openfaas/faas-netes">FaaS-netes</a> plugin</li>
+<li>New: FaaS CLI and easy install via <code>curl</code> and <code>brew</code></li>
+<li>New: Windows function support</li>
+<li>New: Asynchronous/long-running OpenFaaS functions via <a href="https://nats.io/documentation/streaming/nats-streaming-intro/">NATS Streaming</a> - <a href="https://github.com/openfaas/faas/blob/master/guide/asynchronous.md">Follow this guide</a></li>
+</ul>
+<h3 id="how-do-i-become-a-contributor">How do I become a contributor?</h3>
+<p>Anyone is invited to contribute to the project in-line with the <a href="https://github.com/openfaas/faas/blob/master/CONTRIBUTING.md">contribution guide</a> - you can also read the guide for ideas on how to get involved. We invite new contributors to join our Slack community. We would also ask you to propose any changes or contributions ahead of time, especially when there is no issue or proposal alredy tracking it.</p>
+<h3 id="other">Other</h3>
+<p>Example of a Grafana dashboard linked to OpenFaaS showing auto-scaling live in action:</p>
+<p><img alt="" src="https://pbs.twimg.com/media/C9caE6CXUAAX_64.jpg:large" /></p>
+<p>Sample dashboard JSON file available <a href="https://github.com/openfaas/faas/blob/master/contrib/grafana.json">here</a></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../DEV/" class="btn btn-neutral float-right" title="Dev">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../.." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../DEV/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+      <script src="../../faas/gateway/assets/script/bootstrap.js"></script>
+      <script src="../../faas/sample-functions/BaseFunctions/node/handler.js"></script>
+      <script src="../../faas/sample-functions/CaptainsIntent/handler.js"></script>
+      <script src="../../faas/sample-functions/CaptainsIntent/parser.js"></script>
+      <script src="../../faas/sample-functions/ChangeColorIntent/handler.js"></script>
+      <script src="../../faas/sample-functions/ChangeColorIntent/sendColor.js"></script>
+      <script src="../../faas/sample-functions/HostnameIntent/handler.js"></script>
+      <script src="../../faas/sample-functions/NodeInfo/handler.js"></script>
+      <script src="../../faas/sample-functions/NodeInfo/main.js"></script>
+      <script src="../../faas/sample-functions/Phantomjs/cnn.js"></script>
+      <script src="../../faas/sample-functions/Phantomjs/feedly_subscribers.js"></script>
+      <script src="../../faas-cli/sample/get_captains/handler.js"></script>
+      <script src="../../faas-cli/sample/get_captains/parser.js"></script>
+      <script src="../../faas-cli/sample/nodejs-echo/handler.js"></script>
+      <script src="../../faas-cli/template/node/index.js"></script>
+      <script src="../../faas-cli/template/node/function/handler.js"></script>
+      <script src="../../faas-cli/template/node-arm64/index.js"></script>
+      <script src="../../faas-cli/template/node-arm64/function/handler.js"></script>
+
+</body>
+</html>

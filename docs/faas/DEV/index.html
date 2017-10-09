@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Dev - OpenFaaS</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../faas/gateway/assets/style/bootstrap.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Dev";
+    var mkdocs_page_input_path = "faas/DEV.md";
+    var mkdocs_page_url = "/faas/DEV/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> OpenFaaS</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Gateway</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../README/">Gateway</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Dev</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#develop-your-own-function">Develop your own function</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#testdrive">TestDrive</a></li>
+        
+            <li><a class="toctree-l4" href="#working-on-the-api-gateway-or-watchdog">Working on the API Gateway or Watchdog</a></li>
+        
+            <li><a class="toctree-l4" href="#creating-a-function">Creating a function</a></li>
+        
+            <li><a class="toctree-l4" href="#testing-your-function">Testing your function</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ROADMAP/">Roadmap</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../CONTRIBUTING/">Contributing</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Cli</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../faas-cli/README/">Cli</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../faas-cli/MANUAL_CLI/">Manual</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../faas-cli/Notes/">Notes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../faas-cli/CONTRIBUTING/">Contributing</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">OpenFaaS</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Gateway &raquo;</li>
+        
+      
+    
+    <li>Dev</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="develop-your-own-function">Develop your own function</h2>
+<h3 id="testdrive">TestDrive</h3>
+<p>Before you start development, you may want to take FaaS for a test drive which sets up a stack of sample functions from docker-compose.yml. You can then build your own functions and add them to the stack.</p>
+<blockquote>
+<p>You can test-drive FaaS with a set of sample functions as defined in docker-compose.yml on play-with-docker.com for free, or on your own laptop.</p>
+</blockquote>
+<ul>
+<li><a href="https://github.com/openfaas/faas/blob/master/TestDrive.md">Begin the TestDrive instructions</a></li>
+</ul>
+<h3 id="working-on-the-api-gateway-or-watchdog">Working on the API Gateway or Watchdog</h3>
+<p>To work on either of the FaaS Golang components checkout the "./build.sh" scripts and acompanying Dockerfiles.</p>
+<ul>
+<li><a href="https://github.com/openfaas/faas/blob/master/ROADMAP.md">Roadmap and Contributing</a></li>
+</ul>
+<h3 id="creating-a-function">Creating a function</h3>
+<p>Functions run as Docker containers with the Watchdog component embedded to handle communication with the API Gateway.</p>
+<p>You can find the <a href="https://github.com/openfaas/faas/tree/master/watchdog">reference documentation for the Watchdog here</a>.</p>
+<p><strong>Markdown Parser</strong></p>
+<p>This is the basis of a function which generates HTML from MarkDown:</p>
+<pre><code>FROM golang:1.7.5
+RUN mkdir -p /go/src/app
+COPY handler.go /go/src/app
+WORKDIR /go/src/app
+RUN go get github.com/microcosm-cc/bluemonday &amp;&amp; \
+    go get github.com/russross/blackfriday
+
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
+
+ADD https://github.com/openfaas/faas/releases/download/v0.3-alpha/fwatchdog /usr/bin
+RUN chmod +x /usr/bin/fwatchdog
+
+ENV fprocess=&quot;/go/src/app/app&quot;
+
+CMD [&quot;/usr/bin/fwatchdog&quot;]
+</code></pre>
+
+<p>The base Docker container is not important, you just need to add the watchdog component and then set the fprocess to execute your binary at runtime.</p>
+<p>Update the Docker stack with this:</p>
+<pre><code>    markdown:
+        image: alexellis2/faas-markdownrender:latest
+        labels:
+            function: &quot;true&quot;
+        depends_on:
+            - gateway
+        networks:
+            - functions
+</code></pre>
+
+<p><strong>Word counter with busybox</strong></p>
+<pre><code>FROM alpine:latest
+
+ADD https://github.com/openfaas/faas/releases/download/v0.3-alpha/fwatchdog /usr/bin
+RUN chmod +x /usr/bin/fwatchdog
+
+ENV fprocess=&quot;wc&quot;
+CMD [&quot;fwatchdog&quot;]
+</code></pre>
+
+<p>Update your Docker stack with this definition:</p>
+<pre><code>    wordcount:
+        image: alexellis2/faas-alpinefunction:latest
+        labels:
+            function: &quot;true&quot;
+        depends_on:
+            - gateway
+        networks:
+            - functions
+        environment:
+            fprocess:   &quot;wc&quot;
+</code></pre>
+
+<h3 id="testing-your-function">Testing your function</h3>
+<p>You can test your function through a webbrowser against the UI portal on port 8080.</p>
+<p>http://localhost:8080/</p>
+<p>You can also invoke a function by name with curl:</p>
+<pre><code>curl --data-binary @README.md http://localhost:8080/function/func_wordcount
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ROADMAP/" class="btn btn-neutral float-right" title="Roadmap">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../README/" class="btn btn-neutral" title="Gateway"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../README/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../ROADMAP/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+      <script src="../../faas/gateway/assets/script/bootstrap.js"></script>
+      <script src="../../faas/sample-functions/BaseFunctions/node/handler.js"></script>
+      <script src="../../faas/sample-functions/CaptainsIntent/handler.js"></script>
+      <script src="../../faas/sample-functions/CaptainsIntent/parser.js"></script>
+      <script src="../../faas/sample-functions/ChangeColorIntent/handler.js"></script>
+      <script src="../../faas/sample-functions/ChangeColorIntent/sendColor.js"></script>
+      <script src="../../faas/sample-functions/HostnameIntent/handler.js"></script>
+      <script src="../../faas/sample-functions/NodeInfo/handler.js"></script>
+      <script src="../../faas/sample-functions/NodeInfo/main.js"></script>
+      <script src="../../faas/sample-functions/Phantomjs/cnn.js"></script>
+      <script src="../../faas/sample-functions/Phantomjs/feedly_subscribers.js"></script>
+      <script src="../../faas-cli/sample/get_captains/handler.js"></script>
+      <script src="../../faas-cli/sample/get_captains/parser.js"></script>
+      <script src="../../faas-cli/sample/nodejs-echo/handler.js"></script>
+      <script src="../../faas-cli/template/node/index.js"></script>
+      <script src="../../faas-cli/template/node/function/handler.js"></script>
+      <script src="../../faas-cli/template/node-arm64/index.js"></script>
+      <script src="../../faas-cli/template/node-arm64/function/handler.js"></script>
+
+</body>
+</html>

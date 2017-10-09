@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Notes - OpenFaaS</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../faas/gateway/assets/style/bootstrap.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Notes";
+    var mkdocs_page_input_path = "faas-cli/Notes.md";
+    var mkdocs_page_url = "/faas-cli/Notes/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> OpenFaaS</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Gateway</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../faas/README/">Gateway</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../faas/DEV/">Dev</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../faas/ROADMAP/">Roadmap</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../faas/CONTRIBUTING/">Contributing</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Cli</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../README/">Cli</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../MANUAL_CLI/">Manual</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Notes</a>
+    <ul class="subnav">
+            
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../CONTRIBUTING/">Contributing</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">OpenFaaS</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Cli &raquo;</li>
+        
+      
+    
+    <li>Notes</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>build verb</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>faas-cli</code></td>
+<td>prints available verbs and global flags (think of docker/kubectl etc)</td>
+</tr>
+<tr>
+<td><code>faas-cli --help</code></td>
+<td>as above</td>
+</tr>
+<tr>
+<td><code>faas-cli build</code></td>
+<td>help for build verb</td>
+</tr>
+<tr>
+<td><code>faas-cli build --help</code></td>
+<td>as above</td>
+</tr>
+<tr>
+<td><code>faas-cli build .</code></td>
+<td>Build using a local <code>Faasfile</code> (ie default name for the YAML) with context set to <code>.</code> (handlers are relative to this)</td>
+</tr>
+<tr>
+<td><code>faas-cli build -f /path/to/yaml .</code></td>
+<td>As above but explictly pointing to YAML path or URL</td>
+</tr>
+<tr>
+<td><code>faas-cli build . url-ing</code></td>
+<td>Context set to <code>.</code> but only building a specific function (thinking of the <code>samples.yml</code> with multiple fns). I'm a bit torn by this, probably better to avoid being clever.</td>
+</tr>
+<tr>
+<td><strong>deploy verb</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>faas-cli deploy</code></td>
+<td>help for build verb</td>
+</tr>
+<tr>
+<td><code>faas-cli deploy --help</code></td>
+<td>as above</td>
+</tr>
+<tr>
+<td><code>faas-cli deploy .</code></td>
+<td>Deploys using the <code>Faasfile</code> in the PWD</td>
+</tr>
+<tr>
+<td><code>faas-cli deploy -f /path/to/yaml</code></td>
+<td>Deploys using the YAML at the specified path or URL</td>
+</tr>
+<tr>
+<td><code>faas-cli deploy -f /path/to/yaml ruby-echo</code></td>
+<td>as above but only deploys the specified function</td>
+</tr>
+<tr>
+<td><code>faas-cli deploy -f /path/to/yaml ruby-echo --force</code></td>
+<td>overwrites an existing function if it exists (default would be to warn that function already exists)</td>
+</tr>
+</tbody>
+</table>
+<p>Spitballing some new stuff..</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>image verb</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>faas-cli image</code></td>
+<td>prints available subverbs below and global flags</td>
+</tr>
+<tr>
+<td><em>list sub-verb</em></td>
+<td></td>
+</tr>
+<tr>
+<td><code>faas-cli image list</code></td>
+<td>list all FaaS built images, would be based on build adding a magic label</td>
+</tr>
+<tr>
+<td><em>rm sub-verb</em></td>
+<td></td>
+</tr>
+<tr>
+<td><code>faas-cli image rm alexellis/faas-url-ping</code></td>
+<td>deletes the <code>alexellis/faas-url-ping</code> image only if it was created by FaaS, ie has a magic label</td>
+</tr>
+<tr>
+<td><strong>function verb</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>faas-cli function</code></td>
+<td>prints available subverbs below and global flags</td>
+</tr>
+<tr>
+<td><em>list sub-verb</em></td>
+<td></td>
+</tr>
+<tr>
+<td><code>faas-cli function list</code></td>
+<td>list all running FaaS function containers, would be based on deploy adding a magic label</td>
+</tr>
+<tr>
+<td><em>rm sub-verb</em></td>
+<td></td>
+</tr>
+<tr>
+<td><code>faas-cli function rm shrink-image</code></td>
+<td>deletes the <code>func_shrink-image.xxxx</code> containers</td>
+</tr>
+<tr>
+<td><em>describe sub-verb</em></td>
+<td></td>
+</tr>
+<tr>
+<td><code>faas-cli function describe shrink-image</code></td>
+<td>describes the <code>func_shrink-image.xxxx</code> containers, could allow the user to add a description to the functions yaml definition that gets added as a label to either the image of the container</td>
+</tr>
+<tr>
+<td><strong>provider verb</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>faas-cli provider list</code></td>
+<td>lists known FaaS providers, say <code>prod</code>/<code>staging</code>/<code>local</code> etc</td>
+</tr>
+<tr>
+<td><code>faas-cli provider add prod https://prod:8080 --network func_functions</code></td>
+<td>Adds a new provider called <code>prod</code>, likely cache this locally, perhaps in <code>~/.faas-cli/</code></td>
+</tr>
+<tr>
+<td><code>faas-cli provider rm prod</code></td>
+<td>Remove above from the cache</td>
+</tr>
+<tr>
+<td><code>faas-cli provider login prod</code></td>
+<td>Prompt the user to authenticate with the provider, cache locally (Apache Brooklyns cli does something similar)</td>
+</tr>
+<tr>
+<td>This could then enable stuff like..</td>
+<td></td>
+</tr>
+<tr>
+<td><code>faas-cli deploy -f /path/to/yaml prod</code></td>
+<td>override the provider in the YAML and deploy to <code>prod</code></td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../CONTRIBUTING/" class="btn btn-neutral float-right" title="Contributing">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../MANUAL_CLI/" class="btn btn-neutral" title="Manual"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../MANUAL_CLI/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../CONTRIBUTING/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+      <script src="../../faas/gateway/assets/script/bootstrap.js"></script>
+      <script src="../../faas/sample-functions/BaseFunctions/node/handler.js"></script>
+      <script src="../../faas/sample-functions/CaptainsIntent/handler.js"></script>
+      <script src="../../faas/sample-functions/CaptainsIntent/parser.js"></script>
+      <script src="../../faas/sample-functions/ChangeColorIntent/handler.js"></script>
+      <script src="../../faas/sample-functions/ChangeColorIntent/sendColor.js"></script>
+      <script src="../../faas/sample-functions/HostnameIntent/handler.js"></script>
+      <script src="../../faas/sample-functions/NodeInfo/handler.js"></script>
+      <script src="../../faas/sample-functions/NodeInfo/main.js"></script>
+      <script src="../../faas/sample-functions/Phantomjs/cnn.js"></script>
+      <script src="../../faas/sample-functions/Phantomjs/feedly_subscribers.js"></script>
+      <script src="../../faas-cli/sample/get_captains/handler.js"></script>
+      <script src="../../faas-cli/sample/get_captains/parser.js"></script>
+      <script src="../../faas-cli/sample/nodejs-echo/handler.js"></script>
+      <script src="../../faas-cli/template/node/index.js"></script>
+      <script src="../../faas-cli/template/node/function/handler.js"></script>
+      <script src="../../faas-cli/template/node-arm64/index.js"></script>
+      <script src="../../faas-cli/template/node-arm64/function/handler.js"></script>
+
+</body>
+</html>

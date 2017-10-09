@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Roadmap - OpenFaaS</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../faas/gateway/assets/style/bootstrap.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Roadmap";
+    var mkdocs_page_input_path = "faas/ROADMAP.md";
+    var mkdocs_page_url = "/faas/ROADMAP/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> OpenFaaS</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Gateway</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../README/">Gateway</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../DEV/">Dev</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Roadmap</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#roadmap">Roadmap</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#1-current-features">1. Current features</a></li>
+        
+            <li><a class="toctree-l4" href="#github-repos">GitHub repos:</a></li>
+        
+            <li><a class="toctree-l4" href="#2-future-items">2. Future items</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../CONTRIBUTING/">Contributing</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Cli</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../faas-cli/README/">Cli</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../faas-cli/MANUAL_CLI/">Manual</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../faas-cli/Notes/">Notes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../faas-cli/CONTRIBUTING/">Contributing</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">OpenFaaS</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Gateway &raquo;</li>
+        
+      
+    
+    <li>Roadmap</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="roadmap">Roadmap</h1>
+<h2 id="1-current-features">1. Current features</h2>
+<p>For an overview of features in August 2017 read the following post:</p>
+<ul>
+<li><a href="https://blog.alexellis.io/introducing-functions-as-a-service/">Introducing Functions as a Service (FaaS)</a></li>
+</ul>
+<h2 id="github-repos">GitHub repos:</h2>
+<ul>
+<li>https://github.com/openfaas/faas</li>
+<li>https://github.com/openfaas/faas-netes</li>
+<li>https://github.com/openfaas/faas-cli</li>
+<li>https://github.com/openfaas/nats-queue-worker</li>
+</ul>
+<h3 id="the-api-gateway">The API Gateway</h3>
+<p>This container acts in a similar way to the API Gateway on AWS. Requests can be made to this endpoint with a JSON body.</p>
+<p>Some of the more recent Completed Features:</p>
+<ul>
+<li>UI for viewing and testing functions deployed through stack</li>
+<li>Auto-scaling of replicas as load increases</li>
+<li>Backing off of replicas as load reduces</li>
+<li>Unique URL routes for serverless functions</li>
+<li>Instrumentation via Prometheus metrics at GET /metrics</li>
+<li>Bundled Prometheus stack with AlertManager</li>
+<li>UI enhancements to create new function through a form</li>
+<li>Raspberry Pi (armhf/armv6) support (currently available)</li>
+<li>Documentation for current API in Swagger format</li>
+<li>Documentation about <a href="https://blog.alexellis.io/serverless-alexa-skill-mobymingle/">Alexa sample function</a></li>
+<li>Native CLI for templating/building and deploying functions</li>
+<li>Windows support for watchdog back-end - so that Windows executables can be used in a multi-OS swarm</li>
+<li>Enforcing function execution time in seconds.</li>
+<li>Python, Node.js, Ruby and CSharp code templates for the CLI</li>
+<li>Delete function in CLI</li>
+<li>Developer guide for CSharp</li>
+<li>Developer guide for Python</li>
+<li><strong>Kubernetes support</strong></li>
+<li>Asynchronous / long-running tasks via NATS Streaming</li>
+<li>CLI - invoke / list functions / query function info</li>
+<li>OS constraints in the deploy function API</li>
+</ul>
+<p><strong>Incoming requests and routing</strong></p>
+<p>There are three options for routing:</p>
+<ul>
+<li>Functions created on the overlay network can be invoked by: http://localhost:8080/function/{servicename}</li>
+<li>Automatic routing is also enabled through the <code>/</code> endpoint via a <code>X-Function</code> header which matches a service name (function) directly.</li>
+</ul>
+<h3 id="the-watchdog">The watchdog</h3>
+<p>This binary fwatchdog acts as a watchdog for your function. Features:</p>
+<ul>
+<li>Static binary in Go</li>
+<li>Listens to HTTP requests over swarm overlay network</li>
+<li>Spawns process set in <code>fprocess</code> ENV variable for each HTTP connection</li>
+<li>Only lets processes run for set duration i.e. 500ms, 2s, 3s.</li>
+<li>Language/binding independent - can invoke any UNIX process, including built-ins such as <code>wc</code> or <code>cat</code></li>
+<li>Can also run Windows native binaries</li>
+</ul>
+<h2 id="2-future-items">2. Future items</h2>
+<p>Most items are detailed <a href="https://github.com/openfaas/faas/issues">via Github issues</a>.</p>
+<p>Native support is available for Docker Swarm and Kubernetes using primitive API objects in each orchestration platform.</p>
+<p>Must have</p>
+<ul>
+<li>Developer Cloud guides:</li>
+<li>for Digital Ocean</li>
+<li>for Packet</li>
+<li>
+<p>for AWS</p>
+</li>
+<li>
+<p>Re-branding to OpenFaaS (in-progress)</p>
+</li>
+<li>New logo - graphic icon and text (in-progress)</li>
+<li>
+<p>Website / landing page (in progress)</p>
+</li>
+<li>
+<p>Developer guide for your first Node.js function</p>
+</li>
+<li>Developer guide to using functions together - via pipes on client, or a "director" function on server</li>
+</ul>
+<p>Should have</p>
+<ul>
+<li>helm chart</li>
+<li>Certifier for third-party integrations (via e2e tests) </li>
+<li>AfterBurn - fork once, use many which removes almost all runtime latency - (in progress)</li>
+<li>Kafka queue worker implementation (async currently available by NATS Streaming)</li>
+<li>Non-root Docker templates for the CLI (in progress)</li>
+<li>Community templates for the FaaS-CLI (in progress)</li>
+<li>Our own "timer" (aka cron) for invoking functions on a regular basis - or a guide for setting this up via Jenkins or CRON</li>
+<li>Integration with a reverse proxy - such as Traefik or Kong</li>
+<li>I.e. for TLS termination</li>
+<li>Basic auth for /system endpoints (probably via reverse proxy)</li>
+<li>AARCH64 (64-bit ARM) port (dependent on Docker release schedule)</li>
+<li>Healthchecks for functions deployed on Kubernetes</li>
+</ul>
+<p>Could have</p>
+<ul>
+<li>Multi-tenancy (in-progress for Kubernetes and Docker Swarm)</li>
+<li>Progress animation for building Docker images via CLI</li>
+<li>Built-in Docker registry with default configuration</li>
+<li>Docker image builder (remote service)</li>
+<li>Function store - list of useful predefined functions</li>
+<li>Supporting request parameters via route</li>
+<li>Configurable memory limits via "new function" pop-up (already supported by Docker compose stack)</li>
+<li>Scale to zero 0/0 replicas</li>
+<li>Guide/proxy for Flask in a function</li>
+</ul>
+<p>Nice to have</p>
+<ul>
+<li>Guide for basic authentication over HTTPs (set up externally through NGinx etc)</li>
+<li>CRIU - (Checkpoint/Restore In Userspace) for starting serverless tasks with a high start-up cost/latency.</li>
+<li>Deeper tests coverage and integration tests</li>
+<li>Serverless Inc framework support - as a "provider"</li>
+</ul>
+<p>On-going integrations in addition to Swarm and K8s:</p>
+<ul>
+<li>ECS - via Huawei</li>
+<li>Nomad via Hashicorp</li>
+<li>Hyper.sh via Hyper</li>
+<li>Cattle / Rancher by community</li>
+</ul>
+<p>Internal research is also being done for the ACI / K8s-connector.</p>
+<h3 id="contributing">Contributing</h3>
+<p>Please see <a href="https://github.com/openfaas/faas/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a>.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../CONTRIBUTING/" class="btn btn-neutral float-right" title="Contributing">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../DEV/" class="btn btn-neutral" title="Dev"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../DEV/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../CONTRIBUTING/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+      <script src="../../faas/gateway/assets/script/bootstrap.js"></script>
+      <script src="../../faas/sample-functions/BaseFunctions/node/handler.js"></script>
+      <script src="../../faas/sample-functions/CaptainsIntent/handler.js"></script>
+      <script src="../../faas/sample-functions/CaptainsIntent/parser.js"></script>
+      <script src="../../faas/sample-functions/ChangeColorIntent/handler.js"></script>
+      <script src="../../faas/sample-functions/ChangeColorIntent/sendColor.js"></script>
+      <script src="../../faas/sample-functions/HostnameIntent/handler.js"></script>
+      <script src="../../faas/sample-functions/NodeInfo/handler.js"></script>
+      <script src="../../faas/sample-functions/NodeInfo/main.js"></script>
+      <script src="../../faas/sample-functions/Phantomjs/cnn.js"></script>
+      <script src="../../faas/sample-functions/Phantomjs/feedly_subscribers.js"></script>
+      <script src="../../faas-cli/sample/get_captains/handler.js"></script>
+      <script src="../../faas-cli/sample/get_captains/parser.js"></script>
+      <script src="../../faas-cli/sample/nodejs-echo/handler.js"></script>
+      <script src="../../faas-cli/template/node/index.js"></script>
+      <script src="../../faas-cli/template/node/function/handler.js"></script>
+      <script src="../../faas-cli/template/node-arm64/index.js"></script>
+      <script src="../../faas-cli/template/node-arm64/function/handler.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Cli - OpenFaaS</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../faas/gateway/assets/style/bootstrap.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Cli";
+    var mkdocs_page_input_path = "faas-cli/README.md";
+    var mkdocs_page_url = "/faas-cli/README/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> OpenFaaS</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Gateway</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../faas/README/">Gateway</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../faas/DEV/">Dev</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../faas/ROADMAP/">Roadmap</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../faas/CONTRIBUTING/">Contributing</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Cli</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Cli</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#faas-cli">faas-cli</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#tldr">TL;DR</a></li>
+        
+            <li><a class="toctree-l4" href="#intall-the-cli">Intall the CLI</a></li>
+        
+            <li><a class="toctree-l4" href="#run-the-cli">Run the CLI</a></li>
+        
+            <li><a class="toctree-l4" href="#use-a-yaml-stack-file">Use a YAML stack file</a></li>
+        
+            <li><a class="toctree-l4" href="#managing-secrets">Managing secrets</a></li>
+        
+            <li><a class="toctree-l4" href="#constraints">Constraints</a></li>
+        
+            <li><a class="toctree-l4" href="#yaml-reference">YAML reference</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#faas-cli-developers-contributors">FaaS-CLI Developers / Contributors</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#license">License</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../MANUAL_CLI/">Manual</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Notes/">Notes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../CONTRIBUTING/">Contributing</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">OpenFaaS</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Cli &raquo;</li>
+        
+      
+    
+    <li>Cli</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="faas-cli">faas-cli</h2>
+<p><a href="https://goreportcard.com/report/github.com/openfaas/faas-cli"><img alt="Go Report Card" src="https://goreportcard.com/badge/github.com/openfaas/faas-cli" /></a> <a href="https://travis-ci.org/openfaas/faas-cli"><img alt="Build Status" src="https://travis-ci.org/openfaas/faas-cli.svg?branch=master" /></a>
+<a href="https://www.openfaas.com"><img alt="OpenFaaS" src="https://img.shields.io/badge/openfaas-serverless-blue.svg" /></a></p>
+<p>This is a CLI for use with <a href="https://github.com/openfaas/faas">OpenFaaS</a> - a serverless functions framework for Docker &amp; Kubernetes.</p>
+<blockquote>
+<p>Before using this tool please setup OpenFaaS by following instructions over on the main repo.</p>
+</blockquote>
+<p>The CLI can be used to build and deploy functions to <a href="https://github.com/openfaas/faas">OpenFaaS</a>. You can build OpenFaaS functions from a set of supported language templates (such as Node.js, Python, CSharp and Ruby). That means you just write a handler file such as (handler.py/handler.js) and the CLI does the rest to create a Docker image.</p>
+<p>Demo: <a href="https://asciinema.org/a/121234">ASCII cinema</a></p>
+<h4 id="tldr">TL;DR</h4>
+<p><a href="https://blog.alexellis.io/quickstart-openfaas-cli/">Blog: Coffee with the FaaS-CLI</a></p>
+<h3 id="intall-the-cli">Intall the CLI</h3>
+<p>The easiest way to install the faas-cli is through a curl script or <code>brew</code>:</p>
+<pre><code>$ curl -sSL https://cli.openfaas.com | sudo sh
+</code></pre>
+
+<p>or</p>
+<pre><code>$ brew install faas-cli
+</code></pre>
+
+<blockquote>
+<p>The contributing guide has instructions for building from source</p>
+</blockquote>
+<h3 id="run-the-cli">Run the CLI</h3>
+<p>The main commands supported by the CLI are:</p>
+<ul>
+<li><code>faas-cli new</code> - creates a new function via a template in the current directory</li>
+<li><code>faas-cli build</code> - builds Docker images from the supported language types</li>
+<li><code>faas-cli push</code> - pushes Docker images into a registry</li>
+<li><code>faas-cli deploy</code> - deploys the functions into a local or remote OpenFaaS gateway</li>
+<li><code>faas-cli remove</code> - removes the functions from a local or remote OpenFaaS gateway</li>
+<li><code>faas-cli invoke</code> - invokes the functions and reads from STDIN for the body of the request</li>
+</ul>
+<p>Help for all of the commands supported by the CLI can be found by running:</p>
+<ul>
+<li><code>faas-cli help</code> or <code>faas-cli [command] --help</code></li>
+</ul>
+<p>You can chose between using a <a href="https://github.com/openfaas/faas-cli/tree/master/template">programming language template</a> where you only need to provide a handler file, or a Docker that you can build yourself.</p>
+<p><strong>Templates</strong></p>
+<p>Command: <code>faas-cli new FUNCTION_NAME --lang python/node/ruby/Dockerfile/etc</code></p>
+<p>In your YAML you can also specify <code>lang: node/python/csharp/ruby</code></p>
+<ul>
+<li>Supports common languages</li>
+<li>Quick and easy - just write one file</li>
+<li>
+<p>Specify depenencies on Gemfile / requirements.txt or package.json etc</p>
+</li>
+<li>
+<p>Customise the provided templates</p>
+</li>
+</ul>
+<p>Perhaps you need to have <a href="https://github.com/openfaas/faas-office-sample"><code>gcc</code> or another dependency</a> in your Python template? That's not a problem.</p>
+<p>You can customise the Dockerfile or code for any of the templates. Just create a new directory and copy in the templates folder from this repository. The templates in your current working directory are always used for builds.</p>
+<p>See also: <code>faas-cli new --help</code></p>
+<p><strong>Docker image</strong></p>
+<p>Specify <code>lang: Dockerfile</code> if you want the faas-cli to execute a build or <code>skip_build: true</code> for pre-supplied images.</p>
+<ul>
+<li>Ultimate versatility and control</li>
+<li>Package anything</li>
+<li>If you are using a stack file add the <code>skip_build: true</code> attribute</li>
+<li>Use one of the <a href="https://github.com/openfaas/faas/tree/master/sample-functions">samples as a basis</a></li>
+</ul>
+<h3 id="use-a-yaml-stack-file">Use a YAML stack file</h3>
+<p>A YAML stack file groups functions together and also saves on typing.</p>
+<p>You can define individual functions or a set of of them within a YAML file. This makes the CLI easier to use and means you can use this file to deploy to your OpenFaaS instance.</p>
+<p>Here is an example file using the <code>samples.yml</code> file included in the repository.</p>
+<pre><code class="yaml">provider:
+  name: faas
+  gateway: http://localhost:8080
+
+functions:
+  url-ping:
+    lang: python
+    handler: ./sample/url-ping
+    image: alexellis2/faas-urlping
+</code></pre>
+
+<p>This url-ping function is defined in the sample/url-ping folder makes use of Python. All we had to do was to write a <code>handler.py</code> file and then to list off any Python modules in <code>requirements.txt</code>.</p>
+<ul>
+<li>Build the files in the .yml file:</li>
+</ul>
+<pre><code>$ faas-cli build -f ./samples.yml
+</code></pre>
+
+<blockquote>
+<p><code>-f</code> specifies the file or URL to download your YAML file from. The long version of the <code>-f</code> flag is: <code>--yaml</code>.</p>
+</blockquote>
+<p>You can also download over HTTP/s:</p>
+<pre><code>$ faas-cli build -f https://raw.githubusercontent.com/openfaas/faas-cli/master/samples.yml
+</code></pre>
+
+<p>Docker along with a Python template will be used to build an image named alexellis2/faas-urlping.</p>
+<ul>
+<li>Deploy your function</li>
+</ul>
+<p>Now you can use the following command to deploy your function(s):</p>
+<pre><code>$ faas-cli deploy -f ./samples.yml
+</code></pre>
+
+<h3 id="managing-secrets">Managing secrets</h3>
+<p>You can deploy secrets and configuration via environmental variables in-line or via external files.</p>
+<blockquote>
+<p>Note: external files take priority over in-line environmental variables. This allows you to specify a default and then have overrides within an external file.</p>
+</blockquote>
+<p>Priority:</p>
+<ul>
+<li>environment_file - defined in zero to many external files</li>
+</ul>
+<pre><code class="yaml">  environment_file:
+    - file1.yml
+    - file2.yml
+</code></pre>
+
+<p>If you specify a variable such as "access_key" in more than one <code>environment_file</code> file then the last file in the list will take priority.</p>
+<p>Environment file format:</p>
+<pre><code>environment:
+  - access_key: key1
+  - secret_key: key2
+</code></pre>
+
+<ul>
+<li>Define environment in-line within the file:</li>
+</ul>
+<p>Imagine you needed to define a <code>http_proxy</code> variable to operate within a corporate network:</p>
+<pre><code class="yaml">functions:
+  url-ping:
+    lang: python
+    handler: ./sample/url-ping
+    image: alexellis2/faas-urlping
+    environment:
+      http_proxy: http://proxy1.corp.com:3128
+      no_proxy: http://gateway/
+</code></pre>
+
+<h3 id="constraints">Constraints</h3>
+<p>Constraints work with Docker Swarm and are useful for pinning functions to certain hosts.</p>
+<p>Here is an example of picking only Linux:</p>
+<pre><code>   constraints:
+     - &quot;node.platform.os == linux&quot;
+</code></pre>
+
+<p>Or only Windows:</p>
+<pre><code>   constraints:
+     - &quot;node.platform.os == windows&quot;
+</code></pre>
+
+<h3 id="yaml-reference">YAML reference</h3>
+<p>The possible entries for functions are documented below:</p>
+<pre><code class="yaml">functions:
+  deployed_function_name:
+    lang: node or python (optional)
+    handler: ./path/to/handler (optional)
+    image: docker-image-name
+    environment:
+      env1: value1
+      env2: &quot;value2&quot;
+   constraints:
+     - &quot;com.hdd == ssd&quot;
+</code></pre>
+
+<p>Use environmental variables for setting tokens and configuration.</p>
+<p><strong>Accessing the function with <code>curl</code></strong></p>
+<p>You can initiate a HTTP POST via <code>curl</code>:</p>
+<ul>
+<li>with the <code>-d</code> flag i.e. <code>-d "my data here"</code></li>
+<li>or with <code>--data-binary @filename.txt</code> to send a whole file including newlines</li>
+<li>if you want to pass input from STDIN then use <code>--data-binary @-</code></li>
+</ul>
+<pre><code>$ curl -d '{&quot;hello&quot;: &quot;world&quot;}' http://localhost:8080/function/nodejs-echo
+{ nodeVersion: 'v6.9.1', input: '{&quot;hello&quot;: &quot;world&quot;}' }
+
+$ curl --data-binary @README.md http://localhost:8080/function/nodejs-echo
+
+$ uname -a | curl http://localhost:8080/function/nodejs-echo--data-binary @-
+</code></pre>
+
+<blockquote>
+<p>For further instructions on the manual CLI flags (without using a YAML file) read <a href="https://github.com/openfaas/faas-cli/blob/master/MANUAL_CLI.md">manual_cli.md</a></p>
+</blockquote>
+<h2 id="faas-cli-developers-contributors">FaaS-CLI Developers / Contributors</h2>
+<p>See <a href="https://github.com/openfaas/faas-cli/blob/master/CONTRIBUTING.md">contributing guide</a>.</p>
+<h3 id="license">License</h3>
+<p>This project is part of the OpenFaaS project licensed under the MIT License.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../MANUAL_CLI/" class="btn btn-neutral float-right" title="Manual">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../faas/CONTRIBUTING/" class="btn btn-neutral" title="Contributing"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../../faas/CONTRIBUTING/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../MANUAL_CLI/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+      <script src="../../faas/gateway/assets/script/bootstrap.js"></script>
+      <script src="../../faas/sample-functions/BaseFunctions/node/handler.js"></script>
+      <script src="../../faas/sample-functions/CaptainsIntent/handler.js"></script>
+      <script src="../../faas/sample-functions/CaptainsIntent/parser.js"></script>
+      <script src="../../faas/sample-functions/ChangeColorIntent/handler.js"></script>
+      <script src="../../faas/sample-functions/ChangeColorIntent/sendColor.js"></script>
+      <script src="../../faas/sample-functions/HostnameIntent/handler.js"></script>
+      <script src="../../faas/sample-functions/NodeInfo/handler.js"></script>
+      <script src="../../faas/sample-functions/NodeInfo/main.js"></script>
+      <script src="../../faas/sample-functions/Phantomjs/cnn.js"></script>
+      <script src="../../faas/sample-functions/Phantomjs/feedly_subscribers.js"></script>
+      <script src="../../faas-cli/sample/get_captains/handler.js"></script>
+      <script src="../../faas-cli/sample/get_captains/parser.js"></script>
+      <script src="../../faas-cli/sample/nodejs-echo/handler.js"></script>
+      <script src="../../faas-cli/template/node/index.js"></script>
+      <script src="../../faas-cli/template/node/function/handler.js"></script>
+      <script src="../../faas-cli/template/node-arm64/index.js"></script>
+      <script src="../../faas-cli/template/node-arm64/function/handler.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Manual - OpenFaaS</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../faas/gateway/assets/style/bootstrap.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Manual";
+    var mkdocs_page_input_path = "faas-cli/MANUAL_CLI.md";
+    var mkdocs_page_url = "/faas-cli/MANUAL_CLI/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> OpenFaaS</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Gateway</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../faas/README/">Gateway</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../faas/DEV/">Dev</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../faas/ROADMAP/">Roadmap</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../faas/CONTRIBUTING/">Contributing</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Cli</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../README/">Cli</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Manual</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#manual-cli-options">Manual CLI options</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#worked-example-with-nodejs">Worked example with Node.js</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Notes/">Notes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../CONTRIBUTING/">Contributing</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">OpenFaaS</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Cli &raquo;</li>
+        
+      
+    
+    <li>Manual</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h3 id="manual-cli-options">Manual CLI options</h3>
+<p>In addition to YAML file support, you can use the CLI to build and deploy individual functions as follows:</p>
+<h4 id="worked-example-with-nodejs">Worked example with Node.js</h4>
+<p>So if you want to write in another language, just prepare a Dockerfile and build an image manually, like in the <a href="https://github.com/openfaas/faas/tree/master/sample-functions">FaaS samples</a>.</p>
+<p><strong>Build a FaaS function in NodeJS from a template:</strong></p>
+<p>This will generate a Docker image for a Node.js function using the code in <code>/samples/info</code>.</p>
+<ul>
+<li>The <code>faas-cli build</code> command can accept a <code>--lang</code> option of <code>python</code> or <code>node</code> and is <code>node</code> by default.</li>
+</ul>
+<pre><code>   $ faas-cli build \
+      --image=alexellis2/node_info \
+      --name=node_info \
+      --handler=./sample/node_info
+
+Building: alexellis2/node_info with Docker. Please wait..
+...
+Image: alexellis2/node_info built.
+</code></pre>
+
+<p>You can customise the code by editing the handler.js file and changing the <code>--handler</code> parameter. You can also edit the packages.json file, which will be used during the build to make sure all your dependencies are available at runtime.</p>
+<p>For example:</p>
+<pre><code>&quot;use strict&quot;
+
+module.exports = (context, callback) =&gt; {
+    console.log(&quot;echo - &quot; + context);
+
+    callback(undefined, {status: &quot;done&quot;});
+}
+</code></pre>
+
+<p>The CLI will then build a Docker image containing the FaaS watchdog and a bootstrap file to invoke your NodeJS function.</p>
+<p><strong>Deploy the Docker image as a FaaS function:</strong></p>
+<p>Now we can deploy the image as a named function called <code>node_info</code>.</p>
+<pre><code>$ faas-cli deploy \
+   --image=alexellis2/node_info \
+   --name=node_info
+
+200 OK
+
+URL: http://localhost:8080/function/node_info
+</code></pre>
+
+<blockquote>
+<p>This tool can be used to deploy any Docker image as a FaaS function, as long as it includes the watchdog binary as the <code>CMD</code> or <code>ENTRYPOINT</code> of the image.</p>
+</blockquote>
+<p><em>Deploy remotely</em></p>
+<p>You can deploy to a remote FaaS instance as along as you push the image to the Docker Hub, or another accessible Docker registry. Specify your remote gateway with the following flag: <code>--gateway=http://remote-site.com:8080</code></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Notes/" class="btn btn-neutral float-right" title="Notes">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../README/" class="btn btn-neutral" title="Cli"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../README/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../Notes/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+      <script src="../../faas/gateway/assets/script/bootstrap.js"></script>
+      <script src="../../faas/sample-functions/BaseFunctions/node/handler.js"></script>
+      <script src="../../faas/sample-functions/CaptainsIntent/handler.js"></script>
+      <script src="../../faas/sample-functions/CaptainsIntent/parser.js"></script>
+      <script src="../../faas/sample-functions/ChangeColorIntent/handler.js"></script>
+      <script src="../../faas/sample-functions/ChangeColorIntent/sendColor.js"></script>
+      <script src="../../faas/sample-functions/HostnameIntent/handler.js"></script>
+      <script src="../../faas/sample-functions/NodeInfo/handler.js"></script>
+      <script src="../../faas/sample-functions/NodeInfo/main.js"></script>
+      <script src="../../faas/sample-functions/Phantomjs/cnn.js"></script>
+      <script src="../../faas/sample-functions/Phantomjs/feedly_subscribers.js"></script>
+      <script src="../../faas-cli/sample/get_captains/handler.js"></script>
+      <script src="../../faas-cli/sample/get_captains/parser.js"></script>
+      <script src="../../faas-cli/sample/nodejs-echo/handler.js"></script>
+      <script src="../../faas-cli/template/node/index.js"></script>
+      <script src="../../faas-cli/template/node/function/handler.js"></script>
+      <script src="../../faas-cli/template/node-arm64/index.js"></script>
+      <script src="../../faas-cli/template/node-arm64/function/handler.js"></script>
+
+</body>
+</html>
